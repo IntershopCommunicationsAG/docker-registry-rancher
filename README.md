@@ -45,6 +45,8 @@ Unless required by applicable law or agreed to in writing, software distributed 
 
 ## Third-party License nginx
 
+Dockerhub: https://hub.docker.com/_/nginx/
+
 ```
 Copyright (C) 2011-2016 Nginx, Inc.
 All rights reserved.
@@ -72,6 +74,8 @@ SUCH DAMAGE.
 ```
 
 ## Third-party License confd
+
+Github: https://github.com/kelseyhightower/confd
 
 Licensed under the MIT license.
 
