@@ -13,15 +13,13 @@
 # See the License for the specific language governing permissions and
 #  limitations under the License.
 #
-FROM nginx:1.13.8-alpine
+FROM intershopde/docker-nginx-rancher:nginx1.15.6-debian
 
-LABEL maintainer="https://github.com/IntershopCommunicationsAG/rt-docker-registry-rancher" \
+LABEL maintainer="https://github.com/IntershopCommunicationsAG/docker-registry-rancher" \
       license="Apache License 2.0" \
       vendor="Intershop Communications AG"
 
-ENV CONFD_VERSION 0.11.0
-ADD https://github.com/kelseyhightower/confd/releases/download/v${CONFD_VERSION}/confd-${CONFD_VERSION}-linux-amd64 /usr/local/bin/confd
-RUN chmod +x /usr/local/bin/confd
+#RUN rm -rf /etc/confd
 
 COPY asset/rootfs /
 COPY asset/start.sh /
