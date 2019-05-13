@@ -29,6 +29,8 @@ version: '2'
 services:
   docker-registry:
     metadata:
+      nginx:
+        conf: "#additional custom configuration"
       artifactory:
         proxyUrl: http://example.com:8081/artifactory/
         dockerRepoName: docker-repo
