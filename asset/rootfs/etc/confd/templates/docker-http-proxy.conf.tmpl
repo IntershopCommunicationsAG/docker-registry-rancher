@@ -15,7 +15,7 @@
 #
 ## server docker config
 server {
-    listen *:80 default;
+    listen *:{{ getv "/latest/self/service/metadata/artifactory/bindPort" "80" }} default;
     server_name _;
 
     #error_page  404              /404.html;
@@ -31,14 +31,14 @@ server {
     if ($http_x_forwarded_proto = '') {
         set $http_x_forwarded_proto  $scheme;
     }
-    rewrite ^/(v1|v2)/(.*) /api/docker/{{getv "/latest/self/service/metadata/artifactory/dockerRepoName"}}/$1/$2;
+    rewrite ^/(v1|v2)/(.*) /api/docker/{{ getv "/latest/self/service/metadata/artifactory/dockerRepoName" }}/$1/$2;
     chunked_transfer_encoding on;
     client_max_body_size 0;
     location / {
         proxy_read_timeout  900;
         proxy_pass_header   Server;
         proxy_cookie_path   ~*^/.* /;
-        proxy_pass          {{getv "/latest/self/service/metadata/artifactory/proxyUrl"}};
+        proxy_pass          {{ getv "/latest/self/service/metadata/artifactory/proxyUrl "}};
         proxy_set_header    X-Artifactory-Override-Base-Url $http_x_forwarded_proto://$host:$server_port;
         proxy_set_header    X-Forwarded-Port  $server_port;
         proxy_set_header    X-Forwarded-Proto $http_x_forwarded_proto;

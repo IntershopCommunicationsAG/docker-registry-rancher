@@ -33,6 +33,7 @@ services:
         conf: "#additional custom configuration"
       artifactory:
         proxyUrl: http://example.com:8081/artifactory/
+        bindPort: 8080 # default: 80
         dockerRepoName: docker-repo
     scale: 1
     start_on_create: true
