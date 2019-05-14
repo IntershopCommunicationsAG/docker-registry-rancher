@@ -13,7 +13,7 @@
 # See the License for the specific language governing permissions and
 #  limitations under the License.
 #
-FROM intershopde/docker-nginx-rancher:nginx1.15.6-debian
+FROM intershopde/docker-nginx-rancher:nginx1.16.0-alpine
 
 LABEL maintainer="https://github.com/IntershopCommunicationsAG/docker-registry-rancher" \
       license="Apache License 2.0" \

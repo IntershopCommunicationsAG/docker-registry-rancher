@@ -15,7 +15,7 @@ Artifactory Server URL and Docker Repository Name are configurable.
 version: '2'
 services:
   docker-registry:
-    image: intershopde/docker-registry-rancher:nginx1.15.6-debian
+    image: intershopde/docker-registry-rancher:nginx1.16.0-alpine
     stdin_open: true
     tty: true
     labels:
