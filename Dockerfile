@@ -19,8 +19,6 @@ LABEL maintainer="https://github.com/IntershopCommunicationsAG/docker-registry-r
       license="Apache License 2.0" \
       vendor="Intershop Communications AG"
 
-#RUN rm -rf /etc/confd
-
 COPY asset/rootfs /
 COPY asset/start.sh /
 
