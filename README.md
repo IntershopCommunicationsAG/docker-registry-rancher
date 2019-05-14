@@ -1,3 +1,6 @@
+ [![Docker Stars](https://img.shields.io/docker/stars/intershopde/docker-registry-rancher.svg?style=plastic)](https://registry.hub.docker.com/v2/repositories/intershopde/docker-registry-rancher/stars/count/) [![Docker pulls](https://img.shields.io/docker/pulls/intershopde/docker-registry-rancher.svg?style=plastic)](https://registry.hub.docker.com/v2/repositories/intershopde/docker-registry-rancher/)
+[![Docker Automated build](https://img.shields.io/docker/automated/intershopde/docker-registry-rancher.svg?maxAge=2592000?style=plastic)](https://github.com/IntershopCommunicationsAG/docker-registry-rancher/)
+
 # Artifactory Docker Registry Proxy
 
 This image configures a nginx reverse proxy (using confd with Rancher as backend) as docker-registry for Artifactory repositories.
@@ -12,7 +15,7 @@ Artifactory Server URL and Docker Repository Name are configurable.
 version: '2'
 services:
   docker-registry:
-    image: intershopde/docker-registry-rancher:nginx1.13.8-alpine
+    image: intershopde/docker-registry-rancher:nginx1.16.0-alpine
     stdin_open: true
     tty: true
     labels:
@@ -26,6 +29,8 @@ version: '2'
 services:
   docker-registry:
     metadata:
+      nginx:
+        conf: "#additional custom configuration"
       artifactory:
         proxyUrl: http://example.com:8081/artifactory/
         dockerRepoName: docker-repo
