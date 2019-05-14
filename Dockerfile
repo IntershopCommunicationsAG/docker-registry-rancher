@@ -20,6 +20,3 @@ LABEL maintainer="https://github.com/IntershopCommunicationsAG/docker-registry-r
       vendor="Intershop Communications AG"
 
 COPY asset/rootfs /
-COPY asset/start.sh /
-
-CMD ["/start.sh"]
