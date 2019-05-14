@@ -15,7 +15,7 @@
 #
 ## server docker config
 server {
-    listen *:80 default;
+    listen *:{{getv "/latest/self/service/metadata/artifactory/bindPort" "80"}} default;
     server_name _;
 
     #error_page  404              /404.html;

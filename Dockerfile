@@ -19,7 +19,8 @@ LABEL maintainer="https://github.com/IntershopCommunicationsAG/docker-registry-r
       license="Apache License 2.0" \
       vendor="Intershop Communications AG"
 
-COPY asset/rootfs /
-COPY asset/start.sh /
+ENV CONFD_VERSION 0.16.0
+ADD https://github.com/kelseyhightower/confd/releases/download/v${CONFD_VERSION}/confd-${CONFD_VERSION}-linux-amd64 /usr/local/bin/confd
+RUN chmod +x /usr/local/bin/confd
 
-CMD ["/start.sh"]
+COPY asset/rootfs /
