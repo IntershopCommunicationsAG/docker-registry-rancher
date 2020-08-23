@@ -35,7 +35,10 @@ server {
     chunked_transfer_encoding on;
     client_max_body_size 0;
     location / {
-        proxy_read_timeout  900;
+        proxy_read_timeout 7200;
+        proxy_connect_timeout 7200;
+        proxy_send_timeout 7200;
+        send_timeout 7200;
         proxy_pass_header   Server;
         proxy_cookie_path   ~*^/.* /;
         proxy_pass          {{getv "/latest/self/service/metadata/artifactory/proxyUrl"}};
