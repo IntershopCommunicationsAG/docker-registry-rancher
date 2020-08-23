@@ -6,6 +6,7 @@
 This image configures a nginx reverse proxy (using confd with Rancher as backend) as docker-registry for Artifactory repositories.
 
 Artifactory Server URL and Docker Repository Name are configurable.
+This is used with Rancher 1.
 
 # Example Rancher configuration
 
